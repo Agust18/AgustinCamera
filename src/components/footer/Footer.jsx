@@ -25,8 +25,10 @@ const Footer = () => {
               Agustín Camera
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Desarrollador Full Stack especializado en React, 
-              creando experiencias digitales modernas y funcionales.
+              Desarrollador Full Stack.
+            
+              
+              Experiencias digitales modernas y funcionales con React y PHP
             </p>
           </div>
 
@@ -49,10 +51,10 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Columna 3: Redes sociales */}
+       
           <div>
             <h3 className="font-semibold text-white mb-4">
-              Conéctate conmigo
+              Mis contactos
             </h3>
             <div className="flex flex-wrap gap-3">
               <SocialLinks size={22} />

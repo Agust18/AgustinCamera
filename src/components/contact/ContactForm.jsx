@@ -111,7 +111,7 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Email */}
+   
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaEnvelope size={16} className="text-blue-400" />
@@ -129,7 +129,7 @@ const ContactForm = () => {
         />
       </div>
 
-      {/* Mensaje */}
+    
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaPaperPlane size={16} className="text-blue-400" />
