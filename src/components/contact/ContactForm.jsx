@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaUser, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -21,23 +22,48 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+
     try {
-      const form = e.target;
+  
+      const form = e.currentTarget;  
       const data = new FormData(form);
 
-      await fetch('/', {
+
+      data.append('form-name', 'contact');
+
+    
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString()
       });
 
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      
-      
-      alert('¡Mensaje enviado correctamente! Te responderé pronto.');
+       if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        
+       
+        toast.success('¡Mensaje enviado correctamente! Te responderé pronto.', {
+          duration: 5000,
+          style: {
+            background: '#1a1a2e',
+            color: '#fff',
+            border: '1px solid rgba(34, 197, 94, 0.3)',
+          },
+        });
+      } else {
+        throw new Error('Error en la respuesta');
+      }
     } catch (error) {
-      alert('Error al enviar el mensaje. Intenta de nuevo.');
+      console.error('Error:', error);
+      toast.error('Error al enviar el mensaje. Intenta de nuevo.', {
+        duration: 5000,
+        style: {
+          background: '#1a1a2e',
+          color: '#fff',
+          border: '1px solid rgba(239, 68, 68, 0.3)',
+        },
+      });
     } finally {
       setIsLoading(false);
     }
@@ -48,20 +74,17 @@ const ContactForm = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      onSubmit={handleSubmit}
-
-      data-netlify="true"
+     
       name="contact"
       method="POST"
+      data-netlify="true"
+      onSubmit={handleSubmit}
       className="space-y-6"
-       
- 
-  
     >
-   
+      
       <input type="hidden" name="form-name" value="contact" />
 
-
+      
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaUser size={16} className="text-blue-400" />
@@ -78,7 +101,7 @@ const ContactForm = () => {
         />
       </div>
 
-      
+      {/* Email */}
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaEnvelope size={16} className="text-blue-400" />
@@ -112,7 +135,7 @@ const ContactForm = () => {
         />
       </div>
 
-      
+      {/* Botón */}
       <motion.button
         type="submit"
         disabled={isLoading || isSubmitted}
@@ -122,7 +145,7 @@ const ContactForm = () => {
           w-full py-4 rounded-xl font-medium text-white transition-all duration-300
           ${isLoading || isSubmitted
             ? 'bg-gray-600 cursor-not-allowed'
-            : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:shadow-xl hover:shadow-blue-800/15 hover:scale-[1]'
+            : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:shadow-xl hover:shadow-blue-600/20 hover:scale-[1.02]'
           }
         `}
       >
