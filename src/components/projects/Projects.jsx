@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { projects } from '../../data/projects';
+import { projects } from '../../data/Projects';
 import ProjectCard from './ProjectCard';
 import ProjectFilters from './ProjectFilters';
 import ProjectSkeleton from './ProjectSkeleton';

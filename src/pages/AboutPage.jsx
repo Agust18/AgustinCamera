@@ -5,7 +5,7 @@ import {AboutCertificates} from "../components/about";
 import { personalInfo } from '../data/About';
 import { experience } from '../data/Experience';
 import {AboutExperience} from '../components/about';
-import { skills } from '../data/skills';
+import { skills } from '../data/Skills';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
