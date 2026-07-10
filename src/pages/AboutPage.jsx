@@ -1,5 +1,5 @@
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import Header from '../components/header';
+import Footer from '../components/footer';
 import { AboutSkills } from '../components/About';
 import {AboutCertificates} from "../components/about";
 import { personalInfo } from '../data/About';
