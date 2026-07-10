@@ -1,8 +1,8 @@
 import Header from '../components/header';
 import Footer from '../components/footer';
-import { AboutSkills } from '../components/About';
+import { AboutSkills } from '../components/about';
 import {AboutCertificates} from "../components/about";
-import { personalInfo } from '../data/about';
+import { personalInfo } from '../data/About';
 import { experience } from '../data/Experience';
 import {AboutExperience} from '../components/about';
 import { skills } from '../data/skills';
