@@ -20,8 +20,10 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+   
     setIsLoading(true);
+
+    e.currentTarget.querySelector('button[type="submit"]').disabled = true;
 
     try {
   
@@ -80,6 +82,7 @@ const ContactForm = () => {
       data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-6"
+        action="/" 
     >
       
       <input type="hidden" name="form-name" value="contact" />
