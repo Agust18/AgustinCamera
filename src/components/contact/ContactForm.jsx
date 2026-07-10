@@ -54,6 +54,9 @@ const ContactForm = () => {
       name="contact"
       method="POST"
       className="space-y-6"
+       
+ 
+  
     >
    
       <input type="hidden" name="form-name" value="contact" />
@@ -119,7 +122,7 @@ const ContactForm = () => {
           w-full py-4 rounded-xl font-medium text-white transition-all duration-300
           ${isLoading || isSubmitted
             ? 'bg-gray-600 cursor-not-allowed'
-            : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl hover:shadow-blue-600/30 hover:scale-[1.02]'
+            : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:shadow-xl hover:shadow-blue-800/15 hover:scale-[1]'
           }
         `}
       >
