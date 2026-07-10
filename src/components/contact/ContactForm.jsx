@@ -82,7 +82,7 @@ const ContactForm = () => {
       data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-6"
-        action="/" 
+        action="/contacto"  
     >
       
       <input type="hidden" name="form-name" value="contact" />
