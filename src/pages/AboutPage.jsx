@@ -2,7 +2,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import { AboutSkills } from '../components/About';
 import {AboutCertificates} from "../components/about";
-import { personalInfo } from '../data/About';
+import { personalInfo } from '../data/about';
 import { experience } from '../data/Experience';
 import {AboutExperience} from '../components/about';
 import { skills } from '../data/skills';
