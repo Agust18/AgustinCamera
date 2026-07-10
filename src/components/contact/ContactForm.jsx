@@ -42,6 +42,11 @@ const ContactForm = () => {
       }
 
       setIsSubmitted(true);
+
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
       setFormData({
         name: '',
         email: '',
@@ -49,7 +54,7 @@ const ContactForm = () => {
       });
 
       toast.success('¡Mensaje enviado correctamente! Te responderé pronto.', {
-        duration: 5000,
+        duration: 4000,
         style: {
           background: '#1a1a2e',
           color: '#fff',
@@ -66,7 +71,7 @@ const ContactForm = () => {
       console.error(error);
 
       toast.error('Error al enviar el mensaje. Intenta de nuevo.', {
-        duration: 5000,
+        duration: 4000,
         style: {
           background: '#1a1a2e',
           color: '#fff',
@@ -111,7 +116,7 @@ const ContactForm = () => {
         />
       </div>
 
-   
+
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaEnvelope size={16} className="text-blue-400" />
@@ -129,7 +134,7 @@ const ContactForm = () => {
         />
       </div>
 
-    
+
       <div className="group">
         <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
           <FaPaperPlane size={16} className="text-blue-400" />
@@ -152,11 +157,10 @@ const ContactForm = () => {
         disabled={isLoading || isSubmitted}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className={`w-full py-4 rounded-xl font-medium text-white transition-all duration-300 ${
-          isLoading || isSubmitted
+        className={`w-full py-4 rounded-xl font-medium text-white transition-all duration-300 ${isLoading || isSubmitted
             ? 'bg-gray-600 cursor-not-allowed'
             : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:shadow-xl hover:shadow-blue-600/20 hover:scale-[1.02]'
-        }`}
+          }`}
       >
         {isLoading ? (
           <span className="flex items-center justify-center gap-3">
