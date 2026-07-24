@@ -7,6 +7,6 @@ export const experience = [
       "Desarrollo web en entornos colaborativos",
       "Trabajo en equipo con metodologías ágiles"
     ],
-    description:"Grupo de desarrollo de software."
+    description:" Laboratorio / Taller de Análisis y Desarrollo de Sistemas Informáticos con la participación de docentes y estudiantes en distintas etapas de su formación."
   }
 ];
