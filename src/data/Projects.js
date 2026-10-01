@@ -3,11 +3,11 @@ export const projects = [
 {
   id: 1,
   title: "Health Clinic Appointments",
-  description: "Sistema (API) de gestión de citas para clínicas de salud, con backend en PHP utilizando CI4 como framework y frontend dinámico con React.",
+  description: "Sistema (API) de gestión de citas para clínicas de salud, con backend en PHP utilizando CI4 como framework y frontend con React.",
   
   technologies: ["PHP", "React","CI4","CSS","MySQL"],
   image: "/images/sistema-clinica.png",
-  github: "https://github.com/Agust18/Health-clinic-appointments",
+  github: "https://github.com/Agust18/System-Appointments-Backend",
   demo: "",
   
   fullDescription: `Health Clinic Appointments es un sistema completo para la gestión de citas médicas en clínicas de salud.).
@@ -23,19 +23,19 @@ El sistema permite a los pacientes solicitar a la API los turnos,a los médicos 
   
   solutions: [
     "Desarrollé un backend robusto en PHP con MySQL para la gestión de datos y lógica de negocio",
-    "Implementé un frontend dinámico con React para una experiencia de usuario fluida",
-    "Diseñé un sistema de autenticación y autorización por roles usando jwt",
+    "Implementé un frontend con React para una experiencia de usuario fluida",
+    "Diseñé un sistema de autenticación y autorización por roles usando tokens y filter para proteger permisos de endpoints",
     "Optimicé las consultas a la base de datos para gestionar eficientemente la disponibilidad de turnos",
     "Utilicé CSS para crear una interfaz limpia, moderna y responsiva"
   ],
   
   results: [
-    "Sistema completo de gestión de citas para clínicas de salud",
+    "Sistema completo de gestión de turnos,usuarios,roles,especialidades,servicios,horarios,medicos,pacientes, para clínicas de salud",
     "Arquitectura cliente-servidor con backend en PHP y frontend en React",
     "Sistema de roles con permisos específicos filters para la proteccion de endpoints",
-    "Gestión eficiente de disponibilidad y asignación de turnos",
-    "Interfaz de usuario dinámica, moderna",
-    "Integridad y seguridad de los datos"
+    "Gestión eficiente de disponibilidad y asignación de turnos para evitar solapamientos",
+    "Interfaz de usuario dinámica, moderna usando react query para una experiencia fluida y evitar recargas de datos innecesarias",
+    "Integridad y seguridad de los datos médicos mediante validaciones y control de acceso"
   ],
   
   year: 2026,
