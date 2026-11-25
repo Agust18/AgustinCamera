@@ -1,26 +1,39 @@
 <!doctype html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Agustin Camera - Portfolio Web</title>
+    <meta name="theme-color" content="#0a0a0f" />
+    <title>Agustín Camera | Desarrollador Full Stack en PHP, Laravel y React</title>
+    <meta
+      name="description"
+      content="Portfolio de Agustín Camera, desarrollador Full Stack. Sistemas de gestión con PHP, Laravel, CodeIgniter y React: turnos, pedidos y paneles administrativos."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:title" content="Agustín Camera | Desarrollador Full Stack" />
+    <meta
+      property="og:description"
+      content="Sistemas de gestión con PHP, Laravel y React. Mirá los proyectos y escribime."
+    />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
-    <form
-  name="contact"
-  netlify
-  netlify-honeypot="bot-field"
-  hidden
->
-  <input type="hidden" name="form-name" value="contact" />
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-  <input type="text" name="bot-field" />
-</form>
+  <body class="bg-[#0a0a0f] font-['Inter'] text-gray-200 antialiased selection:bg-blue-500/40 selection:text-white">
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+      <input type="text" name="bot-field" />
+    </form>
 
-<div id="root"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

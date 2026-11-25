@@ -1,8 +1,8 @@
 
 import { 
   FaReact, FaBootstrap, FaCss3Alt, FaHtml5, FaGitAlt, 
-  FaDocker, FaGithub, FaWordpress, FaServer, FaDatabase,
-  FaCode, FaTools, FaProjectDiagram
+  FaDocker, FaGithub, FaWordpress,
+  FaCode, FaTools
 } from 'react-icons/fa';
 import { 
   SiTailwindcss, SiAstro, SiPhp, SiCodeigniter, 

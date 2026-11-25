@@ -11,7 +11,9 @@ import HeaderMobileMenu from './HeaderMobileMenu';
 
 const Header = () => {
   const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // El menú queda abierto solo en la ruta donde se abrió: al navegar se cierra sin usar un efecto
+  const [menuOpenAt, setMenuOpenAt] = useState(null);
+  const isMenuOpen = menuOpenAt === location.pathname;
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -21,10 +23,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
 
   return (
     <header 
@@ -49,14 +47,15 @@ const Header = () => {
 
           
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            onClick={() => setMenuOpenAt(isMenuOpen ? null : location.pathname)}
+            className="p-3 rounded-lg hover:bg-white/10 transition"
             aria-label="Menú"
+            aria-expanded={isMenuOpen}
           >
             {isMenuOpen ? (
-              <FaTimes size={24} className="text-gray-700 dark:text-gray-300" />
+              <FaTimes size={24} className="text-gray-200" />
             ) : (
-              <FaBars size={24} className="text-gray-700 dark:text-gray-300" />
+              <FaBars size={24} className="text-gray-200" />
             )}
           </button>
         </div>

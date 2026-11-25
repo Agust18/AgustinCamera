@@ -85,9 +85,9 @@ const ContactForm = () => {
 
   return (
     <motion.form
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 12 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       name="contact"
       method="POST"
       data-netlify="true"
@@ -100,54 +100,59 @@ const ContactForm = () => {
 
       {/* Nombre */}
       <div className="group">
-        <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
-          <FaUser size={16} className="text-blue-400" />
+        <label htmlFor="contact-name" className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
+          <FaUser size={16} className="text-blue-400" aria-hidden="true" />
           Nombre
         </label>
 
         <input
           type="text"
+          id="contact-name"
           name="name"
+          autoComplete="name"
           value={formData.name}
           onChange={handleChange}
           required
-          className="w-full px-5 py-3.5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500/20"
+          className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-[border-color,box-shadow] duration-200 focus:ring-2 focus:ring-blue-500/30"
           placeholder="Tu nombre"
         />
       </div>
 
 
       <div className="group">
-        <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
-          <FaEnvelope size={16} className="text-blue-400" />
+        <label htmlFor="contact-email" className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
+          <FaEnvelope size={16} className="text-blue-400" aria-hidden="true" />
           Email
         </label>
 
         <input
           type="email"
+          id="contact-email"
           name="email"
+          autoComplete="email"
           value={formData.email}
           onChange={handleChange}
           required
-          className="w-full px-5 py-3.5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500/20"
+          className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-[border-color,box-shadow] duration-200 focus:ring-2 focus:ring-blue-500/30"
           placeholder="tu@email.com"
         />
       </div>
 
 
       <div className="group">
-        <label className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
-          <FaPaperPlane size={16} className="text-blue-400" />
+        <label htmlFor="contact-message" className="block text-gray-300 font-medium mb-2 flex items-center gap-2">
+          <FaPaperPlane size={16} className="text-blue-400" aria-hidden="true" />
           Mensaje
         </label>
 
         <textarea
+          id="contact-message"
           name="message"
           value={formData.message}
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-5 py-3.5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-500/20 resize-none"
+          className="w-full px-5 py-3.5 rounded-xl bg-white/5 border border-white/10 focus:border-blue-500/50 text-white placeholder-gray-500 outline-none transition-[border-color,box-shadow] duration-200 focus:ring-2 focus:ring-blue-500/30 resize-none"
           placeholder="Cuéntame sobre tu proyecto..."
         />
       </div>
@@ -155,11 +160,10 @@ const ContactForm = () => {
       <motion.button
         type="submit"
         disabled={isLoading || isSubmitted}
-        whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         className={`w-full py-4 rounded-xl font-medium text-white transition-all duration-300 ${isLoading || isSubmitted
             ? 'bg-gray-600 cursor-not-allowed'
-            : 'bg-gradient-to-r from-blue-600 to-blue-600 hover:shadow-xl hover:shadow-blue-600/20 hover:scale-[1.02]'
+            : 'bg-blue-600 hover:bg-blue-500 cursor-pointer'
           }`}
       >
         {isLoading ? (

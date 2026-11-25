@@ -20,7 +20,7 @@ const Footer = () => {
           <div className="space-y-4">
             <Link 
               to="/" 
-              className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent inline-block hover:scale-105 transition-transform duration-300"
+              className="inline-block font-['Space_Grotesk'] text-2xl font-bold text-white transition-colors duration-200 hover:text-blue-400"
             >
               Agustín Camera
             </Link>
@@ -42,7 +42,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link 
                     to={link.path}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-200 text-sm hover:pl-1"
+                    className="text-gray-400 hover:text-white transition-colors duration-200 inline-flex min-h-11 items-center text-sm"
                   >
                     {link.label}
                   </Link>

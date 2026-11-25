@@ -3,10 +3,7 @@ import {
   FaHome, 
   FaRocket, 
   FaUser, 
-  FaEnvelope, 
-  FaGithub, 
-  FaLinkedin, 
-  FaEnvelope as FaEnvelopeIcon 
+  FaEnvelope
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -20,11 +17,6 @@ const HeaderMobileMenu = ({ isOpen }) => {
     { path: '/contacto', label: 'Contacto', icon: <FaEnvelope size={18} /> },
   ];
 
-  const socialLinks = [
-    { url: 'https://github.com/Agust18', icon: <FaGithub size={20} />, label: 'GitHub' },
-    { url: 'https://www.linkedin.com/in/agustin-camera-a0258221a/', icon: <FaLinkedin size={20} />, label: 'LinkedIn' },
-    { url: 'mailto:AgustinCamera16@hotmail.com', icon: <FaEnvelopeIcon size={20} />, label: 'Email' },
-  ];
 
  
   
@@ -58,7 +50,7 @@ const HeaderMobileMenu = ({ isOpen }) => {
           initial="hidden"
           animate="visible"
           exit="hidden"
-          className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-white/10 dark:border-gray-800 shadow-2xl"
+          className="md:hidden overflow-hidden bg-[#0a0a0f]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl"
         >
           <div className="container mx-auto px-4 py-6">
             
@@ -79,14 +71,14 @@ const HeaderMobileMenu = ({ isOpen }) => {
                       transition-all duration-300
                       ${location.pathname === link.path
                         ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg shadow-blue-600/20'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-white/10 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-blue-400'
+                        : 'text-gray-300 hover:bg-white/5 hover:text-blue-400'
                       }
                     `}
                   >
                     <span className={`
                       ${location.pathname === link.path 
                         ? 'text-white' 
-                        : 'text-gray-500 dark:text-gray-400'
+                        : 'text-gray-400'
                       }
                     `}>
                       {link.icon}
@@ -106,7 +98,7 @@ const HeaderMobileMenu = ({ isOpen }) => {
               initial="hidden"
               animate="visible"
               transition={{ delay: 0.2 }}
-              className="border-t border-white/10 dark:border-gray-800 my-4"
+              className="border-t border-white/10 my-4"
             />
 
            

@@ -1,97 +1,97 @@
 import { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaEye } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import ProjectModal from './ProjectModal';
+import { card, focusRing, linkDraw } from '../../styles/ui';
 
 const ProjectCard = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
-      <div 
-        className="group relative bg-white/5 backdrop-blur-sm rounded-xl overflow-hidden border border-white/10 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500/30 hover:shadow-2xl hover:shadow-blue-500/10"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-   
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-600/20 to-purple-600/20">
-          <img 
-            src={project.image || '/placeholder-project.jpg'} 
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-          />
-          
-    
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="absolute inset-0 w-full h-full flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          >
-            <span className="flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-lg border border-white/20 hover:bg-white/20 transition-colors">
-              <FaEye size={16} />
-              Ver detalles
+      <article className={`${card} group flex flex-col overflow-hidden`}>
+        <button
+          type="button"
+          onClick={() => setIsModalOpen(true)}
+          aria-label={`Ver detalles de ${project.title}`}
+          className={`relative block h-48 w-full cursor-pointer overflow-hidden bg-[#161824] text-left ${focusRing}`}
+        >
+          {project.image ? (
+            <img
+              src={project.image}
+              alt=""
+              width="640"
+              height="384"
+              loading="lazy"
+              className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+            />
+          ) : (
+            <span className="flex h-full w-full items-center justify-center px-6 text-center font-['Space_Grotesk'] text-xl font-semibold text-gray-400">
+              {project.title}
             </span>
-          </button>
-          
-      
-          <div className="absolute bottom-3 left-3 right-3 flex flex-wrap gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
-            {project.technologies.slice(0, 3).map(tech => (
-              <span key={tech} className="text-xs px-2.5 py-1 rounded-full bg-[#0a0a0f]/80 backdrop-blur-sm text-gray-300 border border-white/10">
-                {tech}
-              </span>
-            ))}
-            {project.technologies.length > 3 && (
-              <span className="text-xs px-2.5 py-1 rounded-full bg-[#0a0a0f]/80 backdrop-blur-sm text-gray-400 border border-white/10">
-                +{project.technologies.length - 3}
+          )}
+        </button>
+
+        <div className="flex flex-1 flex-col p-5">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="text-lg font-semibold text-white">{project.title}</h3>
+            {project.status && (
+              <span className="shrink-0 rounded-full border border-white/15 px-2.5 py-0.5 text-xs capitalize text-gray-300">
+                {project.status}
               </span>
             )}
           </div>
-        </div>
 
-        <div className="p-5">
-          <h3 className="text-lg font-semibold text-white mb-1.5 line-clamp-1">
-            {project.title}
-          </h3>
-          <p className="text-gray-400 text-sm leading-relaxed line-clamp-2 mb-3">
+          <p className="mt-2 text-sm leading-relaxed text-gray-400 line-clamp-3">
             {project.description}
           </p>
 
-       
-          <div className="flex items-center gap-4 pt-3 border-t border-white/5">
-            <a 
-              href={project.github} 
-              target="_blank" 
+          <ul className="my-4 flex flex-wrap gap-1.5" aria-label="Tecnologías">
+            {project.technologies.slice(0, 4).map((tech) => (
+              <li key={tech} className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-gray-300">
+                {tech}
+              </li>
+            ))}
+            {project.technologies.length > 4 && (
+              <li className="rounded-full bg-white/5 px-2.5 py-1 text-xs text-gray-400">
+                +{project.technologies.length - 4}
+              </li>
+            )}
+          </ul>
+
+          <div className="mt-auto flex items-center gap-5 border-t border-white/10 pt-4">
+            <a
+              href={project.github}
+              target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1.5"
+              className={`inline-flex min-h-11 items-center gap-1.5 text-sm text-gray-300 hover:text-white ${focusRing}`}
             >
-              <FaGithub size={14} /> Código
+              <FaGithub size={14} aria-hidden="true" /> Código
             </a>
             {project.demo && (
-              <a 
-                href={project.demo} 
-                target="_blank" 
+              <a
+                href={project.demo}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-1.5"
+                className={`inline-flex min-h-11 items-center gap-1.5 text-sm text-blue-400 hover:text-blue-300 ${focusRing}`}
               >
-                <FaExternalLinkAlt size={12} /> Demo
+                <FaExternalLinkAlt size={12} aria-hidden="true" /> Demo
               </a>
             )}
-            
             <button
+              type="button"
               onClick={() => setIsModalOpen(true)}
-              className="ml-auto text-xs text-gray-500 hover:text-white transition-colors flex items-center gap-1"
+              className={`ml-auto min-h-11 cursor-pointer text-sm text-gray-300 hover:text-white ${linkDraw}`}
             >
-              <FaEye size={12} />
               Detalles
             </button>
           </div>
         </div>
-      </div>
+      </article>
 
-    
-      <ProjectModal 
-        project={project} 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <ProjectModal
+        project={project}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </>
   );

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// import { ThemeProvider } from './context/ContextTheme';
+import { MotionConfig } from 'framer-motion';
 import Home from './pages/Home';
 import ProjectsPage from './pages/ProjectsPage';
 import AboutPage from './pages/AboutPage';
@@ -8,6 +8,8 @@ import NotFound from './pages/NotFound';
 
 function App() {
   return (
+    // "user": si el sistema pide menos movimiento, se omiten los desplazamientos y se conservan los fundidos
+    <MotionConfig reducedMotion="user">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -16,7 +18,8 @@ function App() {
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>  
+      </Router>
+    </MotionConfig>
   );
 }
 

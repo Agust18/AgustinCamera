@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaCertificate, FaExternalLinkAlt, FaCheck, FaEye } from 'react-icons/fa';
+import { FaEye } from 'react-icons/fa';
 import CertificateModal from './CertificateModal';
 
 const AboutCertificates = ({ certificates }) => {

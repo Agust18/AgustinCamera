@@ -1,33 +1,41 @@
-
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaRocket, FaUser, FaEnvelope } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { ease, focusRing } from '../../styles/ui';
+
+const navLinks = [
+  { path: '/', label: 'Inicio' },
+  { path: '/proyectos', label: 'Proyectos' },
+  { path: '/sobre-mi', label: 'Sobre Mí' },
+  { path: '/contacto', label: 'Contacto' },
+];
 
 const HeaderNav = () => {
   const location = useLocation();
 
-  const navLinks = [
-    { path: '/', label: 'Inicio', icon: <FaHome size={18} /> },
-    { path: '/proyectos', label: 'Proyectos', icon: <FaRocket size={18} /> },
-    { path: '/sobre-mi', label: 'Sobre Mí', icon: <FaUser size={18} /> },
-    { path: '/contacto', label: 'Contacto', icon: <FaEnvelope size={18} /> },
-  ];
-
   return (
     <>
-      {navLinks.map(link => (
-        <Link
-          key={link.path}
-          to={link.path}
-          className={`flex items-center gap-2 transition-all duration-200 ${
-            location.pathname === link.path
-              ? 'text-blue-600 dark:text-blue-400 font-bold border-b-2 border-blue-600 dark:border-blue-400'
-              : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-105'
-          }`}
-        >
-          {link.icon}
-          {link.label}
-        </Link>
-      ))}
+      {navLinks.map((link) => {
+        const active = location.pathname === link.path;
+        return (
+          <Link
+            key={link.path}
+            to={link.path}
+            aria-current={active ? 'page' : undefined}
+            className={`relative py-1 transition-colors duration-200 ${focusRing} ${
+              active ? 'font-semibold text-white' : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            {link.label}
+            {active && (
+              <motion.span
+                layoutId="nav-indicator"
+                transition={{ duration: 0.4, ease }}
+                className="absolute inset-x-0 -bottom-0.5 h-0.5 rounded-full bg-blue-400"
+              />
+            )}
+          </Link>
+        );
+      })}
     </>
   );
 };

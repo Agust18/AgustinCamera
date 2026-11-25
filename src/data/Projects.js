@@ -10,8 +10,8 @@ export const projects = [
   github: "https://github.com/Agust18/System-Appointments-Backend",
   demo: "",
   
-  fullDescription: `Health Clinic Appointments es un sistema completo para la gestión de citas médicas en clínicas de salud.).
-El sistema permite a los pacientes solicitar a la API los turnos,a los médicos gestionar sus agendas y a los administradores supervisar todo el flujo de atención, optimizando la organización de una clínica de salud.`,
+  fullDescription: `Health Clinic Appointments es un sistema completo para la gestión de citas médicas en clínicas de salud.
+El sistema permite a los pacientes solicitar turnos a través de la API, a los médicos gestionar sus agendas y a los administradores supervisar todo el flujo de atención, optimizando la organización de una clínica de salud.`,
   
   challenges: [
     "Diseñar una arquitectura cliente-servidor escalable para la gestión de citas médicas",
@@ -40,7 +40,7 @@ El sistema permite a los pacientes solicitar a la API los turnos,a los médicos 
   
   year: 2026,
   role: "Desarrollador Full Stack",
-  status:"En desarrollo"
+  status:"en desarrollo"
 },
   
   {
@@ -83,7 +83,7 @@ El proyecto implementa el uso de Eloquent ORM, migraciones de base de datos, sis
   
   year: 2026,
   role: "Desarrollador Full Stack",
-  status:"Por finalizar"
+  status:"por finalizar"
 },
 
   {
@@ -180,7 +180,7 @@ El objetivo principal fue crear una herramienta práctica que permita a los usua
     solutions: [
       "Utilicé Bootstrap como framework CSS para asegurar un diseño responsive.",
       "Diseñé una galería con grid responsivo.",
-      "Implementé un boton flotante de wsp para un contacto rapido y claro.",
+      "Implementé un botón flotante de WhatsApp para un contacto rápido y claro.",
       "Apliqué técnicas de CSS como Flexbox y Grid.",
       "Optimicé imágenes y recursos."
     ],
@@ -193,7 +193,8 @@ El objetivo principal fue crear una herramienta práctica que permita a los usua
       "Navegación fluida y accesible para todos los usuarios"
     ],
     year: 2025,
-    role: "Desarrollador Frontend"
+    role: "Desarrollador Frontend",
+    status: "completado"
   },
 {
   id: 6,
@@ -205,8 +206,8 @@ El objetivo principal fue crear una herramienta práctica que permita a los usua
   github: "https://github.com/Agust18/miWeb-noticias",
   demo: "",
   
-  fullDescription: `MiWeb Noticias,primer projecto personal realizado.Es un sistema completo de publicación y gestión de noticias, desarrollado con PHP nativo y MySQL. Incluye un panel administrativo con funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar) para noticias y sus categorias, permitiendo gestionar el contenido de forma eficiente.
-Tambien cuenta con vista detalle de cada noticia con un carrusel con noticias relacionadas a la categoria de la misma.
+  fullDescription: `MiWeb Noticias,primer proyecto personal realizado. Es un sistema completo de publicación y gestión de noticias, desarrollado con PHP nativo y MySQL. Incluye un panel administrativo con funcionalidades CRUD (Crear, Leer, Actualizar, Eliminar) para noticias y sus categorias, permitiendo gestionar el contenido de forma eficiente.
+También cuenta con vista detalle de cada noticia con un carrusel con noticias relacionadas a la categoria de la misma.
 El sistema cuenta con dos áreas principales: una pública para visualización de noticias y una privada (administrativa) para la gestión de contenido, con autenticación de usuarios y manejo de sesiones.`,
   
   challenges: [

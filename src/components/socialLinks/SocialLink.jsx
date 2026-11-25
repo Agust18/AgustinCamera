@@ -34,9 +34,9 @@ const SocialLinks = ({
           target="_blank"
           rel="noopener noreferrer"
           className={`
-            transition-all hover:scale-110
+            transition-[color,background-color,transform] duration-200 hover:-translate-y-0.5 active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-400 motion-reduce:hover:translate-y-0
             ${iconOnly 
-              ? `p-2 rounded-full ${color}` 
+              ? `p-3 rounded-full ${color}` 
               : `flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 ${color} hover:bg-white/10`
             }
           `}

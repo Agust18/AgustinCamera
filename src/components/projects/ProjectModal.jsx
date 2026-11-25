@@ -1,58 +1,91 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { FaTimes, FaGithub, FaExternalLinkAlt, FaCalendar, FaUsers, FaClock } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ProjectModal = ({ project, isOpen, onClose }) => {
-  // Cerrar con Escape
+  const dialogRef = useRef(null);
+
+  // Escape cierra, Tab queda dentro del diálogo y el foco vuelve al disparador
   useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === 'Escape') onClose();
+    if (!isOpen) return undefined;
+    const previouslyFocused = document.activeElement;
+    const dialog = dialogRef.current;
+    const focusable = () =>
+      dialog
+        ? dialog.querySelectorAll('a[href], button:not([disabled])')
+        : [];
+    focusable()[0]?.focus();
+
+    const handleKey = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const items = focusable();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-    if (isOpen) {
-      document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden';
-    }
+
+    document.addEventListener('keydown', handleKey);
+    document.body.style.overflow = 'hidden';
     return () => {
-      document.removeEventListener('keydown', handleEsc);
+      document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = 'unset';
+      previouslyFocused?.focus?.();
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
   return (
     <AnimatePresence>
+      {isOpen && (
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
         onClick={onClose}
       >
         <motion.div
-          initial={{ scale: 0.9, opacity: 0, y: 20 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.9, opacity: 0, y: 20 }}
-          transition={{ type: 'spring', damping: 25 }}
+          initial={{ scale: 0.96, opacity: 0, y: 16 }}
+          animate={{ scale: 1, opacity: 1, y: 0, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
+          exit={{ scale: 0.98, opacity: 0, y: 8, transition: { duration: 0.18, ease: 'easeIn' } }}
+          ref={dialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label={project.title}
           className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#0a0a0f] rounded-2xl border border-white/10 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
-        
+
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Cerrar detalles"
+            className="absolute top-4 right-4 z-10 p-3 rounded-full bg-black/60 text-gray-200 hover:text-white hover:bg-black/80 transition-colors"
           >
             <FaTimes size={20} />
           </button>
 
     
-          <div className="relative h-64 md:h-80 overflow-hidden">
-            <img 
-              src={project.image || '/placeholder-project.jpg'} 
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
-          </div>
+          {project.image && (
+            <div className="relative h-64 md:h-80 overflow-hidden">
+              <img
+                src={project.image}
+                alt={`Captura de ${project.title}`}
+                className="w-full h-full object-cover object-top"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
+            </div>
+          )}
 
           
           <div className="p-6 md:p-8">
@@ -186,6 +219,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           </div>
         </motion.div>
       </motion.div>
+      )}
     </AnimatePresence>
   );
 };

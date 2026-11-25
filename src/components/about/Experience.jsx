@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import { FaBriefcase, FaCalendarAlt, FaUser, FaArrowRight } from 'react-icons/fa';
+import { FaBriefcase, FaCalendarAlt } from 'react-icons/fa';
 
-const AboutExperience = ({ personalInfo, experience }) => {
+const AboutExperience = ({ experience }) => {
  
   const containerVariants = {
     hidden: { opacity: 0 },

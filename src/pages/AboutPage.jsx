@@ -25,7 +25,6 @@ const AboutPage = () => {
           </nav>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden shadow-2xl">
             <div className="p-6 md:p-8 space-y-8">    
-              <div className="border-t border-white/10" />
               <AboutExperience personalInfo={personalInfo} experience={experience} />
               <AboutCertificates certificates={personalInfo.certificates} />       
               <div className="border-t border-white/10" />          
@@ -38,7 +37,7 @@ const AboutPage = () => {
               >
                 <Link
                   to="/contacto"
-                  className="group inline-flex items-center gap-2 bg-blue-800  text-white px-6 py-3 rounded-lg font-medium hover:shadow-md hover:scale-102 transition-all duration-300"
+                  className="group inline-flex items-center gap-2 bg-blue-800  text-white px-6 py-3 rounded-lg font-medium hover:shadow-md transition-colors duration-200 hover:bg-blue-700"
                 >
                   Contactame
                 </Link>

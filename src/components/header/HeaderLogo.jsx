@@ -1,14 +1,14 @@
-
 import { Link } from 'react-router-dom';
+import { display, focusRing } from '../../styles/ui';
 
 const HeaderLogo = () => {
   return (
-    <Link 
-  to="/" 
-  className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
->
-  Agustin Camera
-</Link>
+    <Link
+      to="/"
+      className={`${display} text-xl font-bold text-white transition-colors duration-200 hover:text-blue-400 md:text-2xl ${focusRing}`}
+    >
+      Agustín Camera
+    </Link>
   );
 };
 
