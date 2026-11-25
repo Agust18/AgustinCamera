@@ -74,10 +74,10 @@ const Hero = () => {
           className="group overflow-hidden rounded-2xl border border-white/10 bg-[#11121a] shadow-2xl shadow-black/50"
         >
           <img
-            src="/images/sistema-clinica.png"
-            alt="Pantalla del sistema de turnos para clínicas que desarrollé"
-            width="960"
-            height="600"
+            src="/images/clinica-hero.webp"
+            alt="Panel de métricas del sistema de turnos para clínicas: turnos por médico y especialidades más demandadas"
+            width="1600"
+            height="1000"
             className="aspect-[8/5] w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02] motion-reduce:transition-none"
           />
         </motion.figure>

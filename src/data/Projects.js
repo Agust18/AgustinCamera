@@ -6,7 +6,8 @@ export const projects = [
   description: "Sistema (API) de gestión de citas para clínicas de salud, con backend en PHP utilizando CI4 como framework y frontend con React.",
   
   technologies: ["PHP", "React","CI4","CSS","MySQL"],
-  image: "/images/sistema-clinica.png",
+  image: "/images/clinica-card.webp",
+  imagePosition: "object-center",
   github: "https://github.com/Agust18/System-Appointments-Backend",
   demo: "",
   

@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
               width="640"
               height="384"
               loading="lazy"
-              className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none"
+              className={`h-full w-full object-cover ${project.imagePosition || 'object-top'} transition-transform duration-500 ease-out group-hover:scale-[1.03] motion-reduce:transition-none`}
             />
           ) : (
             <span className="flex h-full w-full items-center justify-center px-6 text-center font-['Space_Grotesk'] text-xl font-semibold text-gray-400">
